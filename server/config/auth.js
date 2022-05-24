@@ -3,6 +3,18 @@
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
 
+
+/*
+|
++ Dosier des différentes Méthodes d'Authentification :
+: session
+: basic
+* Jwt == par défaut
+|
+*/
+
+
+
 module.exports = {
   /*
   |--------------------------------------------------------------------------

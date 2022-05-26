@@ -7,6 +7,7 @@ class TokensSchema extends Schema {
   up () {
     this.create('tokens', (table) => {
       table.increments()
+      //: Ajout de l'auth pour notre Schéma-projet pour le user
       table.integer('user_id').unsigned().references('id').inTable('users')
       table.string('token', 255).notNullable().unique().index()
       table.string('type', 80).notNullable()

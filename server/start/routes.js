@@ -71,12 +71,16 @@ const Route = use('Route')
 
 
 
-
 Route.group(() => {
   //: Gestion de l'ensemble des Route.group :
-  //: Créé depuis UserController file
+  //: Créé depuis Controllers file
   Route.post('auth/register', 'UserController.register');
   Route.post('auth/login', 'UserController.login');
+
+  Route.get('projects', 'ProjectController.index').middleware('auth');
+  //: Schéma du Projects, 'nom_du_fichier.methode_lié_au_user'
+  Route.get('projects', 'ProjectController.create').middleware('auth');
+  //: création user 
 })
 .prefix('api');
 

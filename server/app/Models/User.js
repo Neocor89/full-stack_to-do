@@ -31,6 +31,14 @@ class User extends Model {
    *
    * @return {Object}
    */
+
+
+  /*
+  * Partie ci-dessous 
+  + Création du lien token & projects = contenant notre user
+  + User renvoi également vers projects = user authentifier
+  */
+
   tokens () {
     return this.hasMany('App/Models/Token')
   }

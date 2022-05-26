@@ -18,4 +18,9 @@ class ProjectSchema extends Schema {
   }
 }
 
+/*
++ Après chaque ajout de nouvel option faire
+* :: adonis migration:run ::
+*/
+
 module.exports = ProjectSchema

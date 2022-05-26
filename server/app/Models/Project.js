@@ -15,9 +15,16 @@ class Project extends Model {
 /*
 + Pause projet 
 |
-? Reprendre en faisant étapes cci-dessous :
-: Dans terminal1 = powershel = commande npm install
-* cd server + adonis run serve
+? Reprendre en faisant étapes ci-dessous :
+: Dans terminal1 = powershel1 = commande npm install
+* cd server + :: adonis serve --dev ::
+|
++ Après chaque ajout de nouvel option faire
+* :: adonis migration:run ::
+|
+?: Avant dernière étape LDC réalisée
+: :: adonis migration:run ::
+|
 :Dans terminal2 = node2 = commande en dessous
 * cd server + adonis make:controller Project
 */

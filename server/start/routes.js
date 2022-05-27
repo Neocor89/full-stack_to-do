@@ -104,6 +104,9 @@ Route.group(() => {
   Route.post('projects', 'ProjectController.create').middleware('auth');
   //: création user 
   Route.delete('projects/:id', 'ProjectController.destroy').middleware('auth');
+  //: Suppression des projets créé par les user
+  Route.patch('projects/:id', 'ProjectController.update').middleware('auth');
+  //: Modification des infos des projets créé par les user
 })
 .prefix('api');
 

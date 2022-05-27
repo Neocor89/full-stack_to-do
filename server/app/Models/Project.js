@@ -9,20 +9,25 @@ class Project extends Model {
   user() {
     return this.belongsTo('App/Models/User');
   }
+
+  tasks () {
+    return this.hasMany('App/Models/Task')
+  }
 }
 
 
 /*
 + Pause projet 
 |
-? Reprendre en faisant étapes ci-dessous :
+? Reprendre le projet en faisant :
 : Dans terminal1 = powershel1 = commande npm install
 * cd server + :: adonis serve --dev ::
 |
-+ Après chaque ajout de nouvel option faire
-* :: adonis migration:run ::
++ Ajout de l'option LDC :
+* :: adonis make:controller Task ::
 |
-?: Avant dernière étape LDC réalisée
+?: Avant dernière étape LDC réalisée = 
+?:: Enregistrement dans la BDD d'une nouvelle demande
 : :: adonis migration:run ::
 |
 :Dans terminal2 = node2 = commande en dessous

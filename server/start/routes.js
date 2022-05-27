@@ -107,6 +107,8 @@ Route.group(() => {
   //: Suppression des projets créé par les user
   Route.patch('projects/:id', 'ProjectController.update').middleware('auth');
   //: Modification des infos des projets créé par les user
+  Route.post('projects/:id/tasks', 'TaskController.create').middleware('auth');
+
 })
 .prefix('api');
 

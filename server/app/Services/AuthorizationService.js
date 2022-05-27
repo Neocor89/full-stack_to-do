@@ -7,4 +7,4 @@ class AuthorizationService {
   }
 }
 
-module.exports = AuthorizationService();
+module.exports = AuthorizationService;

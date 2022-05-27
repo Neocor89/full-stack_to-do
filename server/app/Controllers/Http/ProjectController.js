@@ -4,7 +4,7 @@
 
 //* On inclus le fichier créé et sa méthode 
 const Project = use('App/Models/Project');
-const AuthorizationService = use('App/Models/AuthorizationService');
+const AuthorizationService = use('App/Services/AuthorizationService');
 
 
 /*
@@ -48,5 +48,6 @@ class ProjectController {
     return project;
   }
 }
+
 
 module.exports = ProjectController

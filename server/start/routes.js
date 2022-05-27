@@ -66,6 +66,12 @@ const Route = use('Route')
 {
   "email": "test@email.com",
   "password": "123456"
+  bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTY1MzY2NTMzNX0.qO-vF1E4hGc_qNuYW38SdEV4QO7MS1sdhMwLHGihqpE
+}
+{
+  "email": "secondtest@email.com",
+  "password": "246810"
+  bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTY1MzY2NjA2NX0.dvDwRzpMVdO08yTlCjveMWApzxLgnX8NPO7JXgCC73c
 }
 |
 :: POST localhost:3333/projects ::

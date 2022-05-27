@@ -1,13 +1,16 @@
 'use strict'
 
 
+
+//* On inclus le fichier créé et sa méthode 
+const Project = use('App/Models/Project');
+const AuthorizationService = use('App/Models/AuthorizationService');
+
+
 /*
 * methode async index()
 :return tous les projects associés aux users
 */
-
-const project = use('App/Models/Project');
-
 class ProjectController {
   async index({ auth }) {
     //: auth en parameter
@@ -28,6 +31,21 @@ class ProjectController {
     //: Association du project avec le user
     return project;
     //: Retourne le project
+  }
+
+  async destroy({ auth, request, params }) {
+    //: Route avec /:id = params 
+    //: destroy = Route Delete 
+    const user = await auth.getUser();
+    //: On récupère le user
+    const { id } = params;
+    const project = await Project.find(id);
+    //: On atttend que le project soit trouvé
+    AuthorizationService.verifyPermission(project, user);
+    //: On vérifie la permission du project & user
+    await project.delete();
+    //: On supprime le project
+    return project;
   }
 }
 

@@ -24,7 +24,7 @@ class Project extends Model {
 * cd server + :: adonis serve --dev ::
 |
 + Ajout de l'option LDC :
-* :: adonis make:controller Task ::
+* :: ::
 |
 ?: Avant dernière étape LDC réalisée = 
 ?:: Enregistrement dans la BDD d'une nouvelle demande

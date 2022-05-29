@@ -74,20 +74,14 @@ const Route = use('Route')
   bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjMsImlhdCI6MTY1MzY2NjA2NX0.dvDwRzpMVdO08yTlCjveMWApzxLgnX8NPO7JXgCC73c
 }
 |
+* Ajouter un nouveau titre
 :: POST localhost:3333/projects ::
-* Poster un titre 
-{
-  "title": "test"
-}
+|
+* Récupérer le titre d'un project
+:: GET http://localhost:3333/api/projects/7/tasks
+|
 * Récupérer le titre 
 :: GET localhost:3333/projects ::
-	{
-		"id": 1,
-		"user_id": 1,
-		"title": "test",
-		"created_at": "2022-05-27 13:37:24",
-		"updated_at": "2022-05-27 13:37:24"
-	}
 |
 */
 
@@ -110,6 +104,13 @@ Route.group(() => {
   Route.get('projects/:id/tasks', 'TaskController.index').middleware('auth');
 
   Route.post('projects/:id/tasks', 'TaskController.create').middleware('auth');
+  //: Ajout d'une tache d'un project après vérification
+
+  Route.delete('tasks/:id', 'TaskController.destroy').middleware('auth');
+  //: Suppression d'une tache après vérification
+  
+  Route.patch('tasks/:id', 'TaskController.update').middleware('auth');
+  //: MAJ d'une tache après vérification
 
 })
 .prefix('api');

@@ -34,6 +34,47 @@ class TaskController {
     return task;
   }
 
+  async destroy({ auth, request, params }) {
+    //: Route avec /:id = params 
+    //: destroy = Route Delete 
+    const user = await auth.getUser();
+    //: On récupère le user
+    const { id } = params;
+    const task = await Task.find(id);
+    //: On atttend que le tache soit trouvée
+    const project = await task.project().fetch();
+    //: Récupèration de la tache du project
+    AuthorizationService.verifyPermission(project, user);
+    //: On vérifie la permission du project & user
+    await task.delete();
+    //: On attend la suppression de la tache
+    return task;
+    //: On renvoi le tache supprimée
+  }
+
+  async update({ auth, request, params }) {
+    //: Route avec /:id = params 
+    //: destroy = Route Delete 
+    const user = await auth.getUser();
+    //: On récupère le user
+    const { id } = params;
+    const task = await Task.find(id);
+    //: On atttend que le tache soit trouvée
+    const project = await task.project().fetch();
+    //: Récupèration de la tache du project
+    AuthorizationService.verifyPermission(project, user);
+    //: On vérifie la permission du project & user
+    task.merge(request.only([
+      'description',
+      'completed',
+    ]));
+    //: On fusionne le changement de la tache avec l'ancienne
+    await task.save();
+    //: On sauvegarde la nouvelle tache
+    return task;
+    //: On renvoi la nouvelle tache
+  }
+
 }
 
 module.exports = TaskController

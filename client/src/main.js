@@ -1,9 +1,13 @@
-// import Vuetify from 'vuetify';
-// import Vue from 'vue';
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import store from './store/index';
+import store from './store';
+
+Vue.use(Vuetify);
 // import { sync } from 'vuex-router-sync';
-// Vue.use(Vuetify);
+// index.js or main.js
 createApp(App).use(store).use(router).mount('#app');
